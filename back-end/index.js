@@ -1,5 +1,5 @@
 const express = require('express')
-const conn = require('./sequelize')
+const conn = require('./sequelize/conn')
 const app = express()
 
 
