@@ -1,0 +1,17 @@
+.container{
+  width: 100%;
+}
+
+.card{
+  display: inline-flex;
+  width: 250px;
+  margin: 12px;
+  background-color: aquamarine;
+  border-radius: 0 12px ;
+}
+
+.card-group{
+  width: 100%;
+  text-align: center;
+  margin: 8px;
+}
