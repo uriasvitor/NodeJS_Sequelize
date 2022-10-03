@@ -18,6 +18,7 @@
   text-align: center;
   margin: auto;
 }
+
 form{
   border-radius: 0 32px;
   margin: auto;
@@ -25,15 +26,15 @@ form{
   height: 300px;
   text-align: center;
   align-items: center;
-
-  background-color: rgb(155, 48, 255);
-  box-shadow: 2px 3px 8px 4px;
+  background-color: #0000007d;
+  box-shadow: 2px 3px 20px 4px;;
 }
+
 button{
   width: 150px;
   height: 36px;
-  background-color: blueviolet;
-  color: yellow;
+  background-color: rgb(251, 255, 0);
+  color: black ;
   border-radius: 0 12px;
   border: 1px black solid;
   margin-top: 10px;
@@ -41,7 +42,7 @@ button{
 }
 
 button:disabled{
-  background-color: rgb(50, 17, 82);
+  background-color: rgb(170, 159, 0);
   color: rgb(63, 63, 60);
 }
 label{
@@ -49,6 +50,7 @@ label{
   color: yellow;
   margin: 12px;
 }
+
 input{
   font-size: 22px;
   color: rgb(0, 0, 0);

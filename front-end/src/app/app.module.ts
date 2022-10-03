@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { AddComponent } from './core/components/add/add.component';
 import { listComponent } from './core/components/list/list.component';
+import { scrollDownDirective } from './core/directive/scrollDown.directive';
+import { CardDetailsComponent } from './core/components/card-details/card-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     listComponent,
-    AddComponent
+    AddComponent,
+    scrollDownDirective,
+    CardDetailsComponent
   ],
   imports: [
     BrowserModule,

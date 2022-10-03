@@ -1,12 +1,3 @@
-.error{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-  color: red;
-  font-weight: bold;
-}
 .container{
   width: 100%;
   margin: auto;
@@ -35,8 +26,4 @@
 h1,h2{
   color: rgb(238, 255, 0);
   text-shadow: 1px 4px black;
-}
-.error{
-  font-size: 32px;
-  margin: auto;
 }

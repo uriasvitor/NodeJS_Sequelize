@@ -21,4 +21,8 @@ export class reqService {
     return this.http.post(this.env + 'user/create',data)
   }
 
+  public getById(id:any):Observable<userModel>{
+    console.log(`${this.env}users/${id}`)
+    return this.http.get(`${this.env}users/${id}`)
+  }
 }

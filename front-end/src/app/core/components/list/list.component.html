@@ -1,9 +1,15 @@
+<ng-template [ngIf]="error">
+  <span class="error">Ocorreu um Erro</span>
+  <span></span>
+</ng-template>
 
 <div class="container">
   <div class="card" *ngFor="let lists of list">
-    <div class="card-group">
+    <div class="card-group" [routerLink]="['/card-details',lists.id]" routerLinkActive="active">
+      <h1>{{lists.id}}</h1>
       <h1>Nome: {{lists.name}}</h1>
       <h2>Occupation: {{lists.occupation}}</h2>
     </div>
   </div>
 </div>
+
