@@ -12,6 +12,7 @@ import { reqService } from '../../services/req.service';
 export class CardDetailsComponent implements OnInit {
   card?:userModel;
   lists?:userModel;
+  status:boolean = false;
   constructor(private route: ActivatedRoute, private router: Router, private service: reqService) { }
 
   ngOnInit(): void {
@@ -20,10 +21,23 @@ export class CardDetailsComponent implements OnInit {
     this.getId(cardId)
   }
 
-  getId(id:any){
-    this.service.getById(id).subscribe((data)=>{
-      this.lists = data
-      console.log(this.lists)
+  public getId(id:any){
+    this.service.getById(id).subscribe({
+      next: (data:any)=>{
+        this.lists = data
+        console.log(this.lists)
+      }
+    })
+  }
+
+  public deleteCard(id:any){
+    this.service.deleteById(id).subscribe({
+      next: (data:any)=>{
+        this.status = true
+      },
+      error:(err)=>{
+        console.log(err)
+      }
     })
   }
 

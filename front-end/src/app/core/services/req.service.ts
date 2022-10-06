@@ -17,12 +17,14 @@ export class reqService {
   }
 
   public post(data:any):Observable<userModel>{
-    console.log(data)
     return this.http.post(this.env + 'user/create',data)
   }
 
   public getById(id:any):Observable<userModel>{
-    console.log(`${this.env}users/${id}`)
-    return this.http.get(`${this.env}users/${id}`)
+    return this.http.get(`${this.env}user/${id}`)
+  }
+
+  public deleteById(id:any):Observable<userModel>{
+    return this.http.post(`${this.env}user/delete/${id}`,null)
   }
 }

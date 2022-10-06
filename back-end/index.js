@@ -17,13 +17,24 @@ app.get('/', async(req,res)=>{
     res.send(user)
 })
 
-app.get('/users/:id', async (req,res)=>{
+app.get('/user/:id', async (req,res)=>{
     const id = req.params.id
     console.log(id)
     const user = await User.findOne({ raw:true, where: {id:id} })
 
     res.send(user);
 })
+
+app.post('/user/delete/:id', async (req,res)=>{
+    const id = req.params.id
+    console.log(id)
+    const user = await User.destroy({ where: {id:id} })
+    console.log(user)
+
+    res.redirect('/')
+})
+
+
 app.post('/user/create', (req,res)=>{
     const name = req.body.name
     const occupation = req.body.occupation

@@ -27,3 +27,13 @@ h1,h2{
   color: rgb(238, 255, 0);
   text-shadow: 1px 4px black;
 }
+
+button{
+  width: 100px;
+  height: 50px;
+
+  background-color: rgba(255, 255, 255, 0.466);
+  color: blue;
+  outline: 2px solid red;
+  border-radius: 12px;
+}
