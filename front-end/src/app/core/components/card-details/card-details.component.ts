@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { userModel } from '../../models/user.model';
 import { reqService } from '../../services/req.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,13 +9,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './card-details.component.html',
   styleUrls: ['./card-details.component.css']
 })
-export class CardDetailsComponent implements OnInit {
+export class CardDetailsComponent implements OnInit,OnDestroy {
   card?:userModel;
   lists?:userModel;
   status:boolean = false;
   display:any;
+  currentRoute = "";
+  currentTime:any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: reqService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private service: reqService) {
+    router.events.subscribe((data)=>{
+      this.currentRoute = this.router.url
+    })
+  }
+  ngOnDestroy(): void {
+    if(this.currentRoute === '/app-listComponent'){
+      clearInterval(this.currentTime)
+    }
+  }
 
   public form: FormGroup = new FormGroup({
     name: new FormControl('',[Validators.required]),
@@ -28,6 +38,7 @@ export class CardDetailsComponent implements OnInit {
     const cardId = this.route.snapshot.paramMap.get('id')
     this.service.getById(cardId);
     this.getId(cardId)
+
   }
 
   public getId(id:any){
@@ -38,6 +49,7 @@ export class CardDetailsComponent implements OnInit {
       }
     })
   }
+
   public updateCard(){
     this.service.updateCard(this.form.value).subscribe((data)=>{
       console.log(data)
@@ -58,14 +70,16 @@ export class CardDetailsComponent implements OnInit {
 
 
   timer(seconds:any) {
-    const timer = setInterval(() => {
-      seconds--;
-      this.display = seconds
 
-      if(seconds < 1){
-        clearInterval(timer)
-        this.router.navigate(['/app-listComponent'])
-      }
+    this.currentTime = setInterval(() => {
+      seconds--;
+      this.ngOnDestroy();
+      this.display = seconds
+        if(seconds < 1){
+          clearInterval(this.currentTime)
+          this.router.navigate(['/app-listComponent'])
+        }
     }, 1000);
   }
+
 }
