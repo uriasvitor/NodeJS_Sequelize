@@ -1,39 +1,53 @@
 
 <div class="container">
+
+  <div class="content" *ngIf="!status">
   <h1>Cadastre um Usuario</h1>
 
-  <form [formGroup]="form" novalidate>
-    <div class="form-container">
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input
-        type="text"
-        id="name"
-        formControlName="name"
-        placeholder="Jacob"
-        required
-        >
+    <form [formGroup]="form" novalidate>
+      <div class="form-container">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input
+          type="text"
+          id="name"
+          formControlName="name"
+          placeholder="Jacob"
+          required
+          >
+        </div>
+        <div class="form-group">
+          <label for="occupation">Occupation</label>
+          <input
+          type="text"
+          id="occupation"
+          formControlName="occupation"
+          placeholder="Engenieer"
+          required
+          >
+        </div>
+        <div class="form-group">
+          <label for="newsletter">Newsletter</label>
+          <input
+          type="checkbox"
+          formControlName="newsletter"
+          id="newsletter"
+          checked
+          >
+        </div>
       </div>
-      <div class="form-group">
-        <label for="occupation">Occupation</label>
-        <input
-        type="text"
-        id="occupation"
-        formControlName="occupation"
-        placeholder="Engenieer"
-        required
-        >
-      </div>
-      <div class="form-group">
-        <label for="newsletter">Newsletter</label>
-        <input
-        type="checkbox"
-        formControlName="newsletter"
-        id="newsletter"
-        checked
-        >
-      </div>
+      <button [disabled]="!form.valid" (click)="post()">Cadastrar</button>
+      <div class="error" *ngIf="error">Ocorreu um erro</div>
+    </form>
+  </div>
+
+  <div class="response" *ngIf="status">
+    <h1>Usuario Cadastrado com sucesso!</h1>
+
+    <div class="controls">
+      <a class="reg-again" href="/">Cadastrar outro usuario</a>
+      <a class="reg-again" href="/app-listComponent">Ver lista</a>
     </div>
-    <button [disabled]="!form.valid" (click)="post()">Cadastrar</button>
-  </form>
+  </div>
 </div>
+

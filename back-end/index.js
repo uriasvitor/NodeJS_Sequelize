@@ -34,6 +34,13 @@ app.post('/user/delete/:id', async (req,res)=>{
     res.redirect('/')
 })
 
+app.get('/user/edit/:id', async (req,res)=>{
+    const id = req.params.id
+
+    const user = await User.findOne({ raw: true, where:{ id:id }})
+
+    res.send(user)
+})
 
 app.post('/user/create', (req,res)=>{
     const name = req.body.name

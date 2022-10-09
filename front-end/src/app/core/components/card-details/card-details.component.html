@@ -1,5 +1,7 @@
-<div class="status" *ngIf="status"> Foi excluido com sucesso!</div>
-
+<div class="status" *ngIf="status">
+  <div class="title-card-details"> Foi excluido com sucesso! </div>
+    <p class="redirect">Redirecionando em 00:0{{display}} para a lista.</p>
+</div>
 
 <div class="container" *ngIf="!status">
   <div class="card">
@@ -7,6 +9,7 @@
       <h1>{{lists?.id}}</h1>
       <h1>Nome: {{lists?.name}}</h1>
       <h2>Occupation: {{lists?.occupation}}</h2>
+      <a class="Update" routerLink="/app-addComponent">Update</a>
       <button (click)="deleteCard(lists?.id)">Delete</button>
     </div>
   </div>

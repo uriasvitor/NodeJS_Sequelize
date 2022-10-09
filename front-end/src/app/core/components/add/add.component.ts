@@ -11,6 +11,8 @@ import { reqService } from '../../services/req.service';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit{
+  status:boolean = false;
+  error:boolean = false;
 
   public form: FormGroup = new FormGroup({
     name: new FormControl('',[Validators.required]),
@@ -21,8 +23,15 @@ export class AddComponent implements OnInit{
   constructor(private reqservice:reqService) { }
 
   public post(){
-    this.reqservice.post(this.form.value).subscribe((data)=>{
-      console.log(data)
+    this.reqservice.post(this.form.value).subscribe({
+      next:(data)=>{
+        console.log(data)
+        this.status = true;
+      },
+      error:(err)=>{
+        console.log(err)
+        this.error = true;
+      }
     })
   }
 

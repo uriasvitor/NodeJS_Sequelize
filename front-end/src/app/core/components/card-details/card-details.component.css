@@ -34,6 +34,42 @@ button{
 
   background-color: rgba(255, 255, 255, 0.466);
   color: blue;
-  outline: 2px solid red;
+  font-weight: 600;
   border-radius: 12px;
+  margin-left: 10px;
+  outline: none;
+  border: 1px solid rgb(1, 255, 1);
+
+}
+
+button:hover{
+  background-color: rgba(0, 204, 204, 0.466);
+}
+
+.status{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+
+}
+
+.title-card-details{
+  color: blueviolet;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.redirect{
+  font-size: 25px;
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Update{
+  color: rgb(255, 0, 0);
+  font-size: 20px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.671);
 }

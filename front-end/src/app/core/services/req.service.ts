@@ -27,4 +27,8 @@ export class reqService {
   public deleteById(id:any):Observable<userModel>{
     return this.http.post(`${this.env}user/delete/${id}`,null)
   }
+
+  public updateCard(data:any):Observable<userModel>{
+    return this.http.post(`${this.env}user/edit/`,data)
+  }
 }
