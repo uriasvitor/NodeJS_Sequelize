@@ -39,17 +39,35 @@ export class EditComponent implements OnInit {
             occupation:this.lists?.occupation,
             newsletter:this.lists?.newsletter,
           })
+      },
+
+      error:(err)=>{
+        this.error = true
       }
     })
   }
 
   public updateCard(){
-    const data = this.form.value
 
-    this.service.updateCard(this.form.value).subscribe({
+    const data = {
+      id: this.lists?.id,
+      name: this.form.value.name,
+      occupation:this.form.value.occupation,
+      newsletter:this.form.value.newsletter,
+    }
+
+    this.service.updateCard(data).subscribe({
       next: (data)=>{
+        this.status = true
         console.log(data)
+      },
+
+      error:(err)=>{
+        this.error = true
+        console.log(err)
       }
-    })
+
+      }
+    )
   }
 }

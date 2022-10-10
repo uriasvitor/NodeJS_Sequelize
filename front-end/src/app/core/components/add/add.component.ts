@@ -28,15 +28,14 @@ export class AddComponent implements OnInit{
         console.log(data)
         this.status = true;
       },
+
       error:(err)=>{
         console.log(err)
         this.error = true;
-      }
-    })
+      }}
+    )
   }
 
-  ngOnInit(): void {
-    console.log(this.form.value)
-  }
+  ngOnInit(): void {}
 
 }

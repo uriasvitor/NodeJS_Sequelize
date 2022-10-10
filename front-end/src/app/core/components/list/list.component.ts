@@ -23,6 +23,7 @@ export class listComponent implements OnInit {
     this.card = this.route.paramMap.pipe(
       switchMap(params => {
         this.selectedId = Number(params.get('id'));
+
         return this.reqservice.get();
       })
     )
@@ -33,6 +34,7 @@ export class listComponent implements OnInit {
       next: (data:any)=>{
         this.list = data;
       },
+
       error:(error)=>{
         this.error = true
         console.log('ERROR',error)
