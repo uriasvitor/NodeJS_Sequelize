@@ -43,7 +43,6 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
     this.service.getById(id).subscribe({
       next: (data:any)=>{
         this.lists = data
-        console.log(this.lists)
       }
     })
   }
@@ -54,6 +53,7 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
         this.status = true;
         this.timer(10);
       },
+
       error:(err)=>{
         console.log(err)
       }
@@ -65,6 +65,7 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
 
     this.currentTime = setInterval(() => {
       seconds--;
+
       this.ngOnDestroy();
       this.display = seconds
 
@@ -72,6 +73,7 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
           clearInterval(this.currentTime)
           this.router.navigate(['/app-listComponent'])
         }
+
     }, 1000);
   }
 

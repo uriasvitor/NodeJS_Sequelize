@@ -32,8 +32,8 @@ export class AddComponent implements OnInit{
       error:(err)=>{
         console.log(err)
         this.error = true;
-      }}
-    )
+      }
+    })
   }
 
   ngOnInit(): void {}
