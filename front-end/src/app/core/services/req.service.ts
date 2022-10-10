@@ -29,6 +29,7 @@ export class reqService {
   }
 
   public updateCard(data:any):Observable<userModel>{
-    return this.http.post(`${this.env}user/edit/`,data)
+    console.log(data)
+    return this.http.post(`${this.env}user/update`,data)
   }
 }

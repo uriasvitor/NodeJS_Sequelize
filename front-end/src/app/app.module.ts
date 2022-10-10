@@ -10,6 +10,7 @@ import { AddComponent } from './core/components/add/add.component';
 import { listComponent } from './core/components/list/list.component';
 import { scrollDownDirective } from './core/directive/scrollDown.directive';
 import { CardDetailsComponent } from './core/components/card-details/card-details.component';
+import { EditComponent } from './core/components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardDetailsComponent } from './core/components/card-details/card-detail
     listComponent,
     AddComponent,
     scrollDownDirective,
-    CardDetailsComponent
+    CardDetailsComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

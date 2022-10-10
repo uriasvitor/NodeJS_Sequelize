@@ -14,16 +14,16 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
   lists?:userModel;
   status:boolean = false;
   display:any;
-  currentRoute = "";
+  currentRouter = "";
   currentTime:any;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: reqService) {
-    router.events.subscribe((data)=>{
-      this.currentRoute = this.router.url
+    router.events.subscribe(()=>{
+      this.currentRouter = this.router.url.substring(13,1)
     })
   }
   ngOnDestroy(): void {
-    if(this.currentRoute === '/app-listComponent'){
+    if(this.currentRouter != 'card-details'){
       clearInterval(this.currentTime)
     }
   }
@@ -36,9 +36,7 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     const cardId = this.route.snapshot.paramMap.get('id')
-    this.service.getById(cardId);
     this.getId(cardId)
-
   }
 
   public getId(id:any){
@@ -47,12 +45,6 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
         this.lists = data
         console.log(this.lists)
       }
-    })
-  }
-
-  public updateCard(){
-    this.service.updateCard(this.form.value).subscribe((data)=>{
-      console.log(data)
     })
   }
 
@@ -75,6 +67,7 @@ export class CardDetailsComponent implements OnInit,OnDestroy {
       seconds--;
       this.ngOnDestroy();
       this.display = seconds
+
         if(seconds < 1){
           clearInterval(this.currentTime)
           this.router.navigate(['/app-listComponent'])

@@ -9,9 +9,13 @@
       <h1>{{lists?.id}}</h1>
       <h1>Nome: {{lists?.name}}</h1>
       <h2>Occupation: {{lists?.occupation}}</h2>
-      <a class="Update" routerLink="/app-addComponent">Update</a>
+      <h1>Number: {{lists?.newsletter}}</h1>
+      <h1>Data: {{lists?.createdAt | date}}</h1>
+      <button class="Update" [routerLink]="['/app-edit',lists?.id]">Edit</button>
       <button (click)="deleteCard(lists?.id)">Delete</button>
     </div>
   </div>
 </div>
+
+
 

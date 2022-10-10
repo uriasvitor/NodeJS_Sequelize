@@ -33,6 +33,28 @@ app.post('/user/delete/:id', async (req,res)=>{
 
     res.redirect('/')
 })
+app.post('/user/update',async (req,res)=>{
+    const id = req.body.id
+    const name = req.body.name
+    const occupation = req.body.occupation
+    let newsletter = req.body.newsletter
+
+    if(newsletter === 'on'){
+        newsletter = true;
+    }
+    
+    const userData = {
+        id,
+        name,
+        occupation,
+        newsletter
+    }
+
+    console.log(name, occupation, newsletter)
+    const user = await User.update( userData, { where:{ id: id} })
+
+    res.send(user)
+})
 
 app.get('/user/edit/:id', async (req,res)=>{
     const id = req.params.id

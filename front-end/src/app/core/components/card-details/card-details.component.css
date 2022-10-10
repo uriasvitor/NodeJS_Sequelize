@@ -1,11 +1,14 @@
 .container{
   width: 100%;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .card{
   display: inline-flex;
-  width: 244px;
   margin: 12px;
   max-width: 100%;
   min-height: 300px;
@@ -63,8 +66,6 @@ button:hover{
 
 .redirect{
   font-size: 25px;
-  font-weight: 600;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Update{
