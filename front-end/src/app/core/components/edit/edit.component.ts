@@ -57,15 +57,15 @@ export class EditComponent implements OnInit {
     }
 
     this.service.updateCard(data).subscribe({
-      next: (data)=>{
-        this.status = true
-        console.log(data)
-      },
+        next: (data)=>{
+          this.status = true
+          console.log(data)
+        },
 
-      error:(err)=>{
-        this.error = true
-        console.log(err)
-      }
+        error:(err)=>{
+          this.error = true
+          console.log(err)
+        }
 
       }
     )
